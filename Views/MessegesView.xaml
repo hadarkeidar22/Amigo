@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:templates="clr-namespace:Amigo.Views.Templates"
+             xmlns:local="clr-namespace:Amigo.ViewModels"
+             xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             x:Class="Amigo.Views.MessegesView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <templates:MyDataTemplateSelector x:Key="MessageTemplateSelector"></templates:MyDataTemplateSelector>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.BindingContext>
+        <local:ChatPageViewModel/>
+    </ContentView.BindingContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Label Text="{Binding CurrentUser.FirstName}" Grid.Column="2" VerticalOptions="Center"/>
+
+            <abstractions:CircleImage Grid.Column="3" Source="{Binding CurrentUser.Image}" Aspect="AspectFill">
+                <abstractions:CircleImage.WidthRequest>
+                    <OnPlatform x:TypeArguments="x:Double"
+              iOS="55"
+              Android="55"/>
+                </abstractions:CircleImage.WidthRequest>
+                <abstractions:CircleImage.HeightRequest>
+                    <OnPlatform x:TypeArguments="x:Double"
+              iOS="55"
+              Android="55"/>
+                </abstractions:CircleImage.HeightRequest>
+            </abstractions:CircleImage>
+        </Grid>
+
+        <Label Text="{Binding Room.NameOfEvent}" FontSize="26" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,20,0,0" />
+        <Label Text="{Binding Status}" Grid.Row="1"/>
+        <ListView ItemsSource="{Binding Messages}" Grid.Row="2" HasUnevenRows="True"
+              SeparatorVisibility="None"
+              ItemTemplate="{StaticResource MessageTemplateSelector}"
+              Margin="12"/>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Entry x:Name="MessageEntry" Text="{Binding NewMessageText}"/>
+            <Button Grid.Column="1" Text="Send" Command="{Binding SendMessageCommand}" CommandParameter="{Binding Text, Source={x:Reference MessageEntry}}"/>
+        </Grid>
+    </Grid>
+</ContentView>

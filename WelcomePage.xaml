@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Amigo.WelcomePage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:TypeArguments="x:String" x:Key="BoldFont">
+                <On Platform="Android" Value="OpenSans-Bold.ttf#Open Sans" />
+                <On Platform="iOS" Value="OpenSans-Bold" />
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="NormalFont">
+                <On Platform="Android" Value="OpenSans-Regular.ttf#Open Sans" />
+                <On Platform="iOS" Value="OpenSans-Regular" />
+            </OnPlatform>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <RelativeLayout >
+        <Image  Source="loginImage"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height}"
+                Scale="1.3"
+                
+               />
+
+        <Button x:Name="facebookBtn"
+            RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=1,
+                             Constant=-147}"
+                RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-86}"
+                 WidthRequest="172" HeightRequest="33" Text="התחבר בעזרת facebook" Clicked="Facebook_Clicked" FontSize="Micro"  FontAttributes="Bold" BackgroundColor="RoyalBlue" TextColor="White"/>
+
+
+        <Label x:Name="orLbl" Text="or" FontSize="Micro"  TextColor="White"
+                   RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=1,
+                             Constant=-115}"
+                   RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-2}"
+                   />
+
+
+        <Button x:Name="gmailBtn" WidthRequest="172" HeightRequest="33" Text="התחבר עם מייל בלבד" FontAttributes="Bold" Clicked="mail_Clicked" FontSize="Micro" BackgroundColor="OrangeRed" TextColor="White" 
+                    RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=1,
+                             Constant=-100}"
+                    RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-86}"
+                    />
+        <Button x:Name="infoBtn" WidthRequest="37" HeightRequest="37" VerticalOptions="Start" FontAttributes="Bold" Opacity="0.8" Clicked="Info_Clicked"  BackgroundColor="CadetBlue" Text="?" FontSize="Micro" TextColor="White" BorderRadius="35"
+                    RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=1,
+                             Constant=-40}"
+                    RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=1,
+                             Constant=-40}"
+                    />
+        <StackLayout  Orientation="Horizontal"
+                      RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=1,
+                             Constant=-14}"
+                    RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-62}"
+                      >
+            <Label Text="designed by" TextColor="White" FontSize="Micro"/>
+            <Label Text="Amigo teamⒸ" FontAttributes="Bold" TextColor="White" FontSize="Micro"/>
+        </StackLayout>
+
+        <Button x:Name="theInfoBox" BackgroundColor="LightGray" Opacity="0.8" CornerRadius="10" IsVisible="False" IsEnabled="False"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Constant=-20}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.35}"
+                RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.55,
+                             Constant=0}"
+                RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0,
+                             Constant=10}"
+                 />
+        <Label x:Name="closeTheInfoBoxLbl" TextColor="White" Text="אפשר להמשיך" IsVisible="False"
+               RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.85,
+                             Constant=0}"
+                RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0,
+                             Constant=22}"
+               
+               />
+        <Button x:Name="closeTheInfoBox" Clicked="close_Clicked" IsEnabled="True" TextColor="White" Text="ok" Opacity="0.01" CornerRadius="10" IsVisible="False" WidthRequest="80" HeightRequest="20" BorderRadius="37"
+                RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.85,
+                             Constant=0}"
+                RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0,
+                             Constant=22}"
+                />
+
+        <Label x:Name="theInfo" FontSize="Default" IsVisible="False" TextColor="White" FontAttributes="Bold"
+               RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.56,
+                             Constant=0}"
+                RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0,
+                             Constant=13}"
+               RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Constant=-30}"
+               
+               />
+    </RelativeLayout>
+</ContentPage>

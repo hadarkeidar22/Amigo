@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Amigo.Views.CreateEventView"
+             xmlns:local="clr-namespace:Amigo.Data">
+    <ContentView.Content>
+        <StackLayout>
+
+                <Label FontSize="Large" HorizontalOptions="Center" Text="מתחם ליצירת האמיגו" FontAttributes="Bold"  TextColor="White" />
+                <ScrollView x:Name="newEventForm" VerticalScrollBarVisibility="Always">
+                    <StackLayout Padding="5,20,5,0" HorizontalOptions="Center">
+                        <!-- <ScrollView x:Name="imagePicker"  WidthRequest="300" IsVisible="False"> -->
+                        <StackLayout x:Name="theImagesStack"  HeightRequest="0">
+                            <ScrollView MinimumHeightRequest="70" x:Name="imagePicker" IsVisible="False" Orientation="Horizontal"  WidthRequest="300" IsEnabled="True">
+                                <Grid x:Name="imagesGrid"
+                                      Grid.Column="84">
+                                </Grid>
+                            </ScrollView>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical"  Padding="5,0,5,0">
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand">
+                                    <Label Text="שם האמיגו" TextColor="White" MinimumWidthRequest="280" />
+                                    <Entry x:Name="EventName" Placeholder="שם פשוט וקולע" MinimumWidthRequest="280" />
+                                </StackLayout>
+                                <Button Text="+" Clicked="putImages" x:Name="imagesButton" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="64" HeightRequest="64" BorderRadius="32" BackgroundColor="LightSlateGray" Opacity="0.6"/>
+                                <Button  Clicked="putImages" x:Name="lastImage" IsVisible="False" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="64" HeightRequest="64" BorderRadius="32" />
+                            </StackLayout>
+                            <StackLayout  Padding="0,5,0,0">
+                                <Label Text="מעט פרטים על האמיגו"  TextColor="White"  />
+                                <Editor x:Name="Description" Keyboard="Text"  MinimumWidthRequest="350"  />
+                                <Label Text="מתי את/ה מתכנן את האמיגו?" TextColor="White"  />
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout Padding="5,10,5,10">
+                            <DatePicker x:Name="DatePicker" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="100" >
+                                <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
+                            </DatePicker>
+                            <TimePicker x:Name="HourPicker" HorizontalOptions="Center" WidthRequest="90" />
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" VerticalOptions="Center" Padding="60,0,60,40">
+                            <StackLayout Orientation="Horizontal">
+                                <Switch x:Name="NoDate" IsToggled="False" HorizontalOptions="StartAndExpand" Toggled="NoDateSwitch"/>
+                                <Label Text="התאריך אינו חשוב" TextColor="White"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Switch x:Name="NoHour" IsToggled="False" HorizontalOptions="StartAndExpand" Toggled="NoHourSwitch"/>
+                                <Label Text="השעה אינה חשובה" TextColor="White"/>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout Padding="5,0,5,0">
+                            <Label Text="כמה אנשים הינך מעוניינ/ת למצוא באמיגו?" TextColor="White"  />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+                            <!--<Label Text="From" TextColor="Black" Margin="0,14,0,0" />
+                            -->
+                            <Entry x:Name="MaxParticipants" Keyboard="Numeric" Placeholder="מקס'" Completed="CheckMinMax"/>
+                            <Entry x:Name="MinParticipants" Keyboard="Numeric" Placeholder="החל מ"/>
+
+                        </StackLayout>
+                        <StackLayout Padding="5,0,5,0">
+                            <Label Text="היכן האמיגו הולך להתרחש?" TextColor="White" />
+                        </StackLayout>
+                        <StackLayout x:Name="PlacesSearchBarLayout" Padding="5,0,5,0">
+                            <Entry x:Name="PlacesSearchBar" TextChanged="OnTextChanged" Unfocused="UnFocusSearchBar" Focused="FocusSearchBar"/>
+                            <ActivityIndicator x:Name="spinner" IsRunning="False" IsVisible="False"/>
+                            <ListView x:Name="PlacesList" IsVisible="False" ItemSelected="PlacesListSelected">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextCell Text="{Binding Address}"/>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackLayout>
+                        <StackLayout Padding="5,0,5,0">
+                            <Label Text="בחר קטגוריה כללית לאמיגו" TextColor="White" />
+                        </StackLayout>
+                        <Grid x:Name="InterstsButtons" HorizontalOptions="CenterAndExpand" Opacity="0.3" 
+                              VerticalOptions="CenterAndExpand" Padding="5,0,5,0"/>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="Center" Padding="5,20,5,0">
+                            <Button Text="&#9660;" WidthRequest="50" HeightRequest="40" CornerRadius="10" BackgroundColor="White" Opacity="0.7" x:Name="CollegeBtn" HorizontalOptions="StartAndExpand" Clicked="ShowCollegeForms"/>
+                            <Label Text="סינון האקדמיה" TextColor="White" VerticalOptions="Center" />
+                        </StackLayout>
+                        <StackLayout x:Name="CollegeForms" IsVisible="False" Padding="5,0,5,0">
+                            <StackLayout Orientation="Horizontal" VerticalOptions="Center"  Padding="5,0,15,5">
+                                <Label x:Name="collegeEX" HorizontalOptions="EndAndExpand" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" VerticalOptions="Center" Padding="5,0,5,0">
+                                <Switch x:Name="CollegeSwitch" IsToggled="False"   HorizontalOptions="StartAndExpand"/>
+                                <Label Text="רק אנשים מהאוניברסיטה שלך?" TextColor="White" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" VerticalOptions="Center" Padding="5,0,5,0">
+                                <Switch x:Name="CollegeField" IsToggled="False" HorizontalOptions="StartAndExpand"/>
+                                <Label Text="רק אנשים שלומדים תואר זהה לשלך?" TextColor="White"/>
+                            </StackLayout>
+                            <StackLayout x:Name="mainclassSwitch" Orientation="Horizontal" Padding="5,0,5,0" VerticalOptions="Center">
+                                <Switch x:Name="ClassSwitch" IsToggled="False" HorizontalOptions="StartAndExpand"/>
+                                <Label Text="רק אנשים שלומדים איתך ביחד?" TextColor="White"/>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="Center" Padding="5,0,5,0">
+                            <Button Text="&#9660;" VerticalOptions="Center" WidthRequest="50" HeightRequest="40" CornerRadius="10" BackgroundColor="White" Opacity="0.7" x:Name="TagsBtn" HorizontalOptions="StartAndExpand" Clicked="ShowTagsForms"/>
+                            <Label Text="הוספ/י תגיות לאמיגו (חשוב מאוד)" TextColor="White" VerticalOptions="Center" />
+                        </StackLayout>
+                        <StackLayout x:Name="AddTagsForm" IsVisible="False" Padding="5,0,5,20">
+                            <Grid x:Name="Morehobbiesgrid" Grid.ColumnSpan="3" Grid.RowSpan="4">
+                                <Label x:Name="tagsEX"  HorizontalOptions="Center" Grid.Row="0" Grid.ColumnSpan="3"/>
+                                <Button x:Name="HobbiesaddedButton" HorizontalOptions="Center" Grid.Row="1" Grid.Column="0" Text="הוסף" TextColor="White" BackgroundColor="DimGray" Clicked="HobbiesaddedButtonClicked" />
+                                <Entry  x:Name="Morehobbiescell" WidthRequest="300" HorizontalOptions="CenterAndExpand" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"/>
+                                <Label x:Name="HobbiesString" IsVisible="False" Grid.Row="0"/>
+                            </Grid>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="Center" Padding="5,0,5,0">
+                            <Button Text="&#9660;" x:Name="OtherInfoBtn" HorizontalOptions="StartAndExpand" 
+                                    Clicked="ShowOtherInfoForms" VerticalOptions="Center" WidthRequest="50" HeightRequest="40" CornerRadius="10" BackgroundColor="White" Opacity="0.7"/>
+                            <Label Text="פרטים נוספים" TextColor="White" VerticalOptions="Center" />
+                        </StackLayout>
+                        <StackLayout x:Name="AddOtherInfoForm" IsVisible="False" Padding="5,0,5,0">
+                            <StackLayout x:Name="moreOptions"  Orientation="Horizontal" VerticalOptions="Center" Padding="20,0,20,0">
+                                <Switch x:Name="genderFilterSwitch" IsToggled="False" HorizontalOptions="StartAndExpand"/>
+                                <Label Text="הזמן לאמיגו רק את בני/ות מינך" TextColor="White"/>
+                            </StackLayout>
+                            <StackLayout Padding="20,5,20,0">
+                                <Label Text="טווח גילאים:" TextColor="White" />
+                            </StackLayout>
+                            <StackLayout x:Name="ageOptions" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+                                <Entry x:Name="MaxAgeEntery" WidthRequest="30" HorizontalOptions="Fill"  Style="(staticResource chooseNext)" Keyboard="Numeric" Placeholder="" Completed="CheckAgeRange"/>
+                                <Label Text="ועד" TextColor="White" Margin="2,14,0,0" />
+                                <Entry x:Name="MinAgeEntery" WidthRequest="30" HorizontalOptions="Fill"  Style="(staticResource chooseNext)" Keyboard="Numeric" Placeholder=""/>
+                                <Label Text="הזן/י טווח:  החל מ-" TextColor="White" Margin="0,14,0,0" />
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout WidthRequest="75" Padding="55,40,55,0">
+                            <Button x:Name="CreateBtn" Text="צור לי אמיגו!" BackgroundColor="#162d3d" FontSize="Medium" TextColor="White"  WidthRequest="75" HeightRequest="50" Clicked="CreateEvent"/>
+                        </StackLayout>
+                        <ActivityIndicator HorizontalOptions="Center" VerticalOptions="Center" IsVisible="False" IsEnabled="True" x:Name="syncIndicator" />
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+    </ContentView.Content>
+</ContentView>
+

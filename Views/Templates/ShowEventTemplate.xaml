@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Amigo.Views.Templates.ShowEventTemplate">
+    <ContentView.Resources>
+        <ResourceDictionary>
+
+            <Style x:Key="ListItemStyle" TargetType="Grid">
+                <Setter Property="WidthRequest" Value="120" />
+            </Style>
+
+            <Style x:Key="TitleStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+
+            <Style x:Key="InformationStyle" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+
+            <Style x:Key="ProgressStyle" TargetType="Grid">
+                <Setter Property="BackgroundColor" Value="Red" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="VerticalOptions" Value="End" />
+                <Setter Property="HeightRequest" Value="2" />
+                <Setter Property="WidthRequest" Value="80" />
+            </Style>
+
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <Grid
+            Style="{StaticResource ListItemStyle}">
+            <BoxView BackgroundColor="LightBlue"  Grid.RowSpan="2"/>
+            <Label 
+                Text="{Binding Title}"
+                Style="{StaticResource TitleStyle}" Grid.Row="0"/>
+            <Label 
+                Text="{Binding Content}"
+                Style="{StaticResource InformationStyle}" Grid.Row="1"/>
+            <Grid 
+                Style="{StaticResource ProgressStyle}"/>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

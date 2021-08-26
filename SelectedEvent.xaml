@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Amigo.SelectedEvent"
+             xmlns:templates="clr-namespace:Amigo.Views.Templates"
+             xmlns:controls2="clr-namespace:Amigo.Controls"
+             xmlns:controls="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+             BackgroundImage="detailsImage2">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="controls2:HorizontalList">
+                <Setter Property="Margin" Value="12, 0" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout>
+
+        <controls:CarouselViewControl Orientation="Horizontal" InterPageSpacing="10" x:Name="SelectedCarouselView" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" PositionSelected="SetColors">
+            <controls:CarouselViewControl.ItemTemplate>
+                <DataTemplate>
+                    <ContentView Content="{Binding .}" VerticalOptions="FillAndExpand"/>
+                </DataTemplate>
+            </controls:CarouselViewControl.ItemTemplate>
+        </controls:CarouselViewControl>
+
+        <Grid BackgroundColor="#217fa8" VerticalOptions="Center" x:Name="BottomMenu">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="63"/>
+            </Grid.RowDefinitions>
+            <Button Text="Event" x:Name="firstPage" FontSize="Small" Clicked="firstPageClick"  Grid.Column="0" BackgroundColor="#217fa8"/>
+            <Button Text="Chat" x:Name="secondPage" FontSize="Small" Clicked="secondPageClick"  Grid.Column="2" BackgroundColor="#217fa8" />
+        </Grid>
+
+    </StackLayout>
+</ContentPage>

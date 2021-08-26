@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Amigo.CreateEventIntro">
+    <ContentPage.Content>
+        <ScrollView x:Name="theScrollView" IsEnabled="False">
+            <RelativeLayout x:Name="relativeView" IsEnabled="True">
+                <Image  Source="detailsImage2" 
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height}"
+                Scale="3"
+               />
+        <Label x:Name="header" TextColor="White" FontAttributes="None" IsVisible="True"  FontSize="Medium" Text="נכנסת למתחם ליצירת אמיגו"             
+                RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0,
+                             Constant=200}"
+                RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-107}"/>
+        <Button x:Name="continue1"  Text="המשך" IsEnabled="True" TextColor="White" FontSize="17" Clicked="goTo1" BackgroundColor="DarkSlateGray" IsVisible="True"  Opacity="1" CornerRadius="10"  
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0.3}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.06}"
+                RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0,
+                             Constant=300}"
+                RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.35,
+                             Constant=0}"
+                 />
+        <Label x:Name="explanation" HorizontalOptions="Center" HorizontalTextAlignment="Center" TextColor="White" FontAttributes="None" IsVisible="False"  FontSize="Medium"
+               
+                RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0,
+                             Constant=170}"
+                RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-148}"/>
+        <Button x:Name="continue2"  Text="אני מוכן" TextColor="White" FontSize="17" Clicked="goToAddEvent" BackgroundColor="DarkSlateGray" IsVisible="False"  Opacity="1" CornerRadius="10"  
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0.3}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.06}"
+                RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0,
+                             Constant=300}"
+                RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.35,
+                             Constant=0}"
+                 />
+        <Label x:Name="question" HorizontalOptions="Center" HorizontalTextAlignment="Center" Text="מה, היום אנחנו לא נמצא אמיגואים?" TextColor="White" FontAttributes="None" IsVisible="False"  FontSize="Large"
+               
+                RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.4,
+                             Constant=0}"
+                RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-148}"/>
+        
+        <Grid x:Name="options" IsVisible="False"
+              RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0.6}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.1}"
+                RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.7,
+                             Constant=0}"
+                RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.2,
+                             Constant=0}"
+              >
+        <!--
+            <Button Text="האמת שרוצה" FontSize="17" Clicked="stay" BackgroundColor="DarkSlateGray" TextColor="White" Grid.Column="0" ></Button>
+            <Button Text="לא עכשיו" FontSize="17" Clicked="notNow" BackgroundColor="DarkSlateGray" TextColor="White" Grid.Column="1" ></Button>
+          -->  
+        </Grid>
+                <Button x:Name="headerBox" BackgroundColor="LightSlateGray"  Opacity="0.3" IsEnabled="False" IsVisible="False"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Constant=-40}"
+                HeightRequest="30"
+                RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0,
+                             Constant=20}"
+                RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0,
+                             Constant=20}"/>
+
+                <ContentView x:Name="CreateEventView" IsVisible="False" />
+            
+        </RelativeLayout>
+            </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

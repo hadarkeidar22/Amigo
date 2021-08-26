@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Amigo.MailLogin" >
+    <RelativeLayout x:Name="thePage" >
+        <Image  x:Name="theImage"
+            Source="detailsImageFlip" 
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height}"
+                Scale="1.3"
+               />
+
+        <Button BackgroundColor="LightGray"  Opacity="0.3" CornerRadius="10" IsEnabled="False"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Constant=-20}"
+                HeightRequest="50"
+                RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0,
+                             Constant=25}"
+                RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0,
+                             Constant=10}"
+                 />
+        <Label x:Name="header" TextColor="White"  FontSize="Large"
+               
+                RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0,
+                             Constant=36}"
+                RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-85}"/>
+
+        <Label  TextColor="White" Text="○ מייל לצורכי זיהוי (לא נשלח דואר זבל)"  FontSize="Default"
+                RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.3,
+                             Constant=0}"
+                RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=1,
+                             Constant=-230}"/>
+        <Button BackgroundColor="LightGray" IsVisible="False"   Opacity="0.3" CornerRadius="10" IsEnabled="False"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Constant=-20}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.08}"
+                RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.3,
+                             Constant=18}"
+                RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0,
+                             Constant=10}"
+                 />
+
+        <Entry PlaceholderColor="White" TextColor="White"
+            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Constant=-40}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.08}"
+                RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.3,
+                             Constant=18}"
+                RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0,
+                             Constant=20}"/>
+
+        <Label  TextColor="White" Text="○ סיסמת משתמש\ת"  FontSize="Default"
+                RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.3,
+                             Constant=120}"
+                RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=1,
+                             Constant=-130}"/>
+        <Button BackgroundColor="LightGray" IsVisible="False"  Opacity="0.3" CornerRadius="10" IsEnabled="False"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Constant=-20}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.08}"
+                RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.3,
+                             Constant=138}"
+                RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0,
+                             Constant=10}"
+                 />
+
+        <Entry PlaceholderColor="White" TextColor="White" IsPassword="True"
+            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Constant=-40}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.08}"
+                RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.3,
+                             Constant=138}"
+                RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0,
+                             Constant=20}"/>
+        <Button x:Name="logInBox" Text="רשמו אותי בבקשה" BackgroundColor="Turquoise" IsVisible="True" FontSize="17" TextColor="White"  Opacity="1" CornerRadius="10"  Clicked="AddDetails"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0.6}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.1}"
+                RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.8,
+                             Constant=0}"
+                RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.2,
+                             Constant=0}"
+                 />
+        <Label x:Name="logInLbl" IsVisible="False" TextColor="White" FontAttributes="Bold"  FontSize="Medium" Text="רשמו אותי בבקשה"
+               
+                RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.81,
+                             Constant=0}"
+                RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-75}"/>
+        <StackLayout  Orientation="Horizontal"
+                      RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=1,
+                             Constant=-14}"
+                    RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-62}"
+                      >
+            <Label Text="designed by" TextColor="White" FontSize="Micro"/>
+            <Label Text="Amigo teamⒸ" FontAttributes="Bold" TextColor="White" FontSize="Micro"/>
+        </StackLayout>
+
+        
+    </RelativeLayout>
+</ContentPage>

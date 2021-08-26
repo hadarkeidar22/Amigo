@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             x:Class="Amigo.UserProfile"
+             BackgroundColor="White">
+    <ContentPage.Content>
+            <RelativeLayout>
+                <Image  Source="ADdetailsImage2" Opacity="0.5" 
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0,Constant=150}"
+                Scale="2"
+               />
+
+                <BoxView BackgroundColor="White" Color="White"
+                         RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height}"
+                         RelativeLayout.YConstraint ="{ConstraintExpression 
+                                        Type=RelativeToParent,
+                                        Property=Height,
+                                        Factor=0,
+                                        Constant=170}"/>
+
+                <StackLayout  RelativeLayout.YConstraint ="{ConstraintExpression 
+                                        Type=RelativeToParent,
+                                        Property=Height,
+                                        Factor=0,
+                                        Constant=100}"
+                                    RelativeLayout.XConstraint ="{ConstraintExpression 
+                                        Type=RelativeToParent,
+                                        Property=Width,
+                                        Factor=0.5,
+                                        Constant=-200}" >
+                    <StackLayout HorizontalOptions="Center">
+                        <controls:CircleImage x:Name="UserPhoto"  WidthRequest="100" HeightRequest="100">
+                        </controls:CircleImage>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                        <Label x:Name="UserAge"  
+                                     TextColor="Gray" FontSize="Large"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                        <Label x:Name="UserFullName"  
+                                     TextColor="Black" FontSize="Large"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" HeightRequest="35">
+                        <Label x:Name="UserCollegeLabel"  
+                               TextColor="Gray"  VerticalOptions="Center" FontSize="Small" />
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="Center">
+                        <Label Text="---------------------------------------------------------------" TextColor="White" WidthRequest="400"></Label>
+                    </StackLayout>
+                </StackLayout>
+
+            </RelativeLayout>
+    </ContentPage.Content>
+</ContentPage>

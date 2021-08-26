@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Amigo.SettingsPages.EditInfo"
+             >
+    <ContentPage.Content>
+        <ScrollView>
+            <RelativeLayout>
+               <!-- <BoxView BackgroundColor="White"
+                         RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=2}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=2}"
+                         ></BoxView>
+                -->
+                <Image Source="detailsImage2Flip" Opacity="0.3" 
+                       RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height}"
+                       RelativeLayout.YConstraint ="{ConstraintExpression 
+                                        Type=RelativeToParent,
+                                        Property=Height,
+                                        Factor=0,
+                                        Constant=0}"
+                                    RelativeLayout.XConstraint ="{ConstraintExpression 
+                                        Type=RelativeToParent,
+                                        Property=Width,
+                                        Factor=0.5,
+                                        Constant=-200}"
+                       Scale="1.5"
+                       
+                       />
+                <StackLayout
+                     RelativeLayout.YConstraint ="{ConstraintExpression 
+                                        Type=RelativeToParent,
+                                        Property=Height,
+                                        Factor=0,
+                                        Constant=-20}"
+                                    RelativeLayout.XConstraint ="{ConstraintExpression 
+                                        Type=RelativeToParent,
+                                        Property=Width,
+                                        Factor=0.5,
+                                        Constant=-200}"
+                    >
+                    <Label Text="-----------------------------------------------------------" HorizontalTextAlignment="Center" WidthRequest="400"/>
+                    <StackLayout Padding="100,455,100,40">
+                        <Button Text="שמור שינויים" BackgroundColor="#162d3d" Opacity="1" TextColor="White" HeightRequest="40" WidthRequest="5" CornerRadius="2" Clicked="SaveChanges"></Button>
+                    </StackLayout>
+                </StackLayout>
+
+
+
+
+
+
+                <StackLayout
+                                    
+                                    RelativeLayout.YConstraint ="{ConstraintExpression 
+                                        Type=RelativeToParent,
+                                        Property=Height,
+                                        Factor=0,
+                                        Constant=-15}"
+                                    RelativeLayout.XConstraint ="{ConstraintExpression 
+                                        Type=RelativeToParent,
+                                        Property=Width,
+                                        Factor=0.5,
+                                        Constant=-400}">
+                    <StackLayout>
+                        <Label Text="--------------------------------------------------------------------" 
+                                WidthRequest="800" HorizontalOptions="Center"></Label>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="0,15,0,0">
+                        <Label Text="עדכון נתוני משתמש" TextColor="White" FontSize="22"/>
+                    </StackLayout>
+                    <StackLayout Padding="285,20,285,10">
+                        <BoxView BackgroundColor="Turquoise" HeightRequest="1" x:Name="sadbox2" />
+                    </StackLayout>
+
+                    <StackLayout  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Padding="5">
+                        <StackLayout IsVisible="False" Orientation="Horizontal" HeightRequest="50" HorizontalOptions="CenterAndExpand">
+                            <DatePicker WidthRequest="30" BackgroundColor="White" HeightRequest="20"  x:Name="Birthday" HorizontalOptions="Center"></DatePicker>
+                            <Entry Placeholder="Last Name" x:Name="LastName" WidthRequest="75"  HorizontalTextAlignment="Center"></Entry>
+                            <Entry Placeholder="First Name" x:Name="FirstName" HorizontalTextAlignment="Center" WidthRequest="75"></Entry>
+                            <Image Source="hadarPic.jpg"/>
+                        </StackLayout>
+
+                        <Label Text="Current city" WidthRequest="250" IsVisible="False"></Label>
+                        <Entry Placeholder="City" x:Name="City" WidthRequest="250" IsVisible="False"></Entry>
+
+
+
+                        <StackLayout x:Name="hisCollege"  VerticalOptions="StartAndExpand" HorizontalOptions="Center" Padding="0,25,0,0">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                <Picker x:Name="College" MinimumHeightRequest="70">
+                                    <Picker.ItemsSource>
+                                        <x:Array Type="{x:Type x:String}">
+                                            <x:String>אונ' אריאל</x:String>
+                                            <x:String>אונ' בן-גוריון</x:String>
+                                            <x:String>אונ' בר אילן</x:String>
+                                            <x:String>אונ' חיפה</x:String>
+                                            <x:String>אונ' ת"א</x:String>
+                                            <x:String>האונ' העברית</x:String>
+                                            <x:String>טכניון</x:String>
+                                        </x:Array>
+                                    </Picker.ItemsSource>
+                                </Picker>
+                                <StackLayout Padding="0,14,0,0">
+                                    <Label Text="הינך לומד ב: "  HorizontalOptions="End"/>
+                                </StackLayout>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                <StackLayout Orientation="Horizontal" >
+                                    <Picker x:Name="FirstCollegeField"  MinimumWidthRequest="50">
+                                        <Picker.ItemsSource>
+                                            <x:Array Type="{x:Type x:String}">
+                                                <x:String>ביולוגיה</x:String>
+                                                <x:String>הנדסה אזרחית</x:String>
+                                                <x:String>הנדסה ביו-רפואית</x:String>
+                                                <x:String>הנדסת חומרים</x:String>
+                                                <x:String>הנדסת חשמל</x:String>
+                                                <x:String>הנדסת מכונות</x:String>
+                                                <x:String>הנדסת תוכנה</x:String>
+                                                <x:String>הנדסת תעו"נ</x:String>
+                                                <x:String>חינוך</x:String>
+                                                <x:String>חשבונאות</x:String>
+                                                <x:String>כימיה</x:String>
+                                                <x:String>כלכלה</x:String>
+                                                <x:String>מדעי המוח</x:String>
+                                                <x:String>מדעי המחשב</x:String>
+                                                <x:String>מנהל עסקים</x:String>
+                                                <x:String>משפטים</x:String>
+                                                <x:String>מתמטיקה</x:String>
+                                                <x:String>ניהול</x:String>
+                                                <x:String>סטטיסטיקה</x:String>
+                                                <x:String>פיזיקה</x:String>
+                                                <x:String>פילוסופיה</x:String>
+                                                <x:String>פסיכולוגיה</x:String>
+                                                <x:String>עבודה סוציאלית</x:String>
+                                                <x:String>רפואה</x:String>
+                                                <x:String>תקשורת</x:String>
+                                            </x:Array>
+                                        </Picker.ItemsSource>
+                                    </Picker>
+                                </StackLayout>
+                                <StackLayout Padding="0,14,0,0">
+                                    <Label Text="הינך לומד במסלול: "  HorizontalOptions="End"/>
+                                </StackLayout>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                <StackLayout Orientation="Horizontal" >
+                                    <Picker IsVisible="False" WidthRequest="50" x:Name="SecondCollegeField" >
+                                        <Picker.ItemsSource>
+                                            <x:Array Type="{x:Type x:String}">
+                                                <x:String>ביולוגיה</x:String>
+                                                <x:String>הנדסה אזרחית</x:String>
+                                                <x:String>הנדסה ביו-רפואית</x:String>
+                                                <x:String>הנדסת חומרים</x:String>
+                                                <x:String>הנדסת חשמל</x:String>
+                                                <x:String>הנדסת מכונות</x:String>
+                                                <x:String>הנדסת תוכנה</x:String>
+                                                <x:String>הנדסת תעו"נ</x:String>
+                                                <x:String>חינוך</x:String>
+                                                <x:String>חשבונאות</x:String>
+                                                <x:String>כימיה</x:String>
+                                                <x:String>כלכלה</x:String>
+                                                <x:String>מדעי המוח</x:String>
+                                                <x:String>מדעי המחשב</x:String>
+                                                <x:String>מנהל עסקים</x:String>
+                                                <x:String>משפטים</x:String>
+                                                <x:String>מתמטיקה</x:String>
+                                                <x:String>ניהול</x:String>
+                                                <x:String>סטטיסטיקה</x:String>
+                                                <x:String>פיזיקה</x:String>
+                                                <x:String>פילוסופיה</x:String>
+                                                <x:String>פסיכולוגיה</x:String>
+                                                <x:String>עבודה סוציאלית</x:String>
+                                                <x:String>רפואה</x:String>
+                                                <x:String>תקשורת</x:String>
+                                            </x:Array>
+                                        </Picker.ItemsSource>
+                                    </Picker>
+                                </StackLayout>
+
+                                <StackLayout Padding="0,14,0,0">
+                                    <Label Text="חוג שני: "  HorizontalOptions="End" x:Name="secongFieldLbl" IsVisible="False"/>
+                                </StackLayout>
+                            </StackLayout>
+                            <Button x:Name="RemoveCollegeFieldButton" Clicked="RemoveCollegeField" IsVisible="False"
+                                        HeightRequest="70" WidthRequest="70" Text="לא משנה" 
+                                        Opacity="0.5" BackgroundColor="LightSlateGray" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" BorderRadius="35"/>
+                            
+                            <StackLayout>
+                                <Button x:Name="AddCollegeFieldButton" Text="הוסף מקצוע" Clicked="AddCollegeField" HeightRequest="70" WidthRequest="70" IsVisible="True"
+                                        Opacity="0.5" BackgroundColor="LightSlateGray" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" BorderRadius="35"/>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                            <Entry Keyboard="Numeric" Placeholder="Class Of" x:Name="ClassOf" WidthRequest="50"></Entry>
+                            <StackLayout Padding="0,14,0,0">
+                                <Label Text="תחילת לימודים: "  HorizontalOptions="End" />
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout Padding="0,3,0,0">
+                                <Button x:Name="checkBox" WidthRequest="36"  HeightRequest="36" CornerRadius="5" BackgroundColor="Black" Opacity="0.7" IsVisible="False"
+                    Image="checkMark24" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </StackLayout>
+                        
+                    </StackLayout>
+                </StackLayout>
+
+               
+            </RelativeLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cardView="clr-namespace:CardView;assembly=CardView"
+             xmlns:local="clr-namespace:Amigo.Convertors"
+             x:Class="Amigo.MyEventsPage">
+    <!--Pages can be added as references or inline-->
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <local:BoolToString x:Key="BoolToString" />
+            <local:DescriptionConverter x:Key="DescriptionConverter" />
+            <local:DateConvertor x:Key="DateConvertor" />
+            <local:HourConvertor x:Key="HourConvertor" />
+            <local:CardBackgroundConvertor x:Key="CardBackgroundConvertor" />
+            <local:CardImageConvertor x:Key="CardImageConvertor" />
+            <local:TagsConvertor x:Key="TagsConvertor" />
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <StackLayout>
+            <ActivityIndicator  HorizontalOptions="Center" VerticalOptions="Center" IsVisible="False" IsEnabled="True" x:Name="syncIndicator" />
+            <ListView x:Name="eventsList" HasUnevenRows="True" ItemSelected="OnSelected" IsPullToRefreshEnabled="true" Refreshing="OnRefresh" >
+                <ListView.GroupHeaderTemplate>
+                    <DataTemplate>
+                        <ViewCell Height="35">
+                            <StackLayout VerticalOptions="FillAndExpand"
+                       Padding="5"
+                       BackgroundColor="#162d3d">
+                                <Label Text="לה קאסה" TextColor="White" VerticalOptions="Start" HorizontalOptions="Center" FontSize="Large"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.GroupHeaderTemplate>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="8,8,8,8" Orientation="Vertical" BackgroundColor="LightGray">
+                                <cardView:CardView 
+                                                BackgroundColor="{Binding Id, Converter={StaticResource CardBackgroundConvertor}}"
+                                                HeightRequest="207"
+                                                CardViewHasShadow="True">
+                                    <cardView:CardView.CardViewContent>
+                                        <StackLayout
+                                                        Padding="10"
+                                                        HorizontalOptions="EndAndExpand"
+                                                        Spacing="10"
+                                                        VerticalOptions="Center">
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                                            <Label
+                                                            VerticalOptions="Center"
+                                                            FontSize="Large"
+                                                            TextColor="Black"
+                                                            HorizontalOptions="End"
+                                                            Text="{Binding NameOfEvent}" />
+                                            <StackLayout HeightRequest="80" WidthRequest="80">
+                                                <RelativeLayout>
+                                                    <Image HeightRequest="76" WidthRequest="76" HorizontalOptions="EndAndExpand" Source="greenCircle"
+                                                       RelativeLayout.YConstraint ="{ConstraintExpression 
+                                                        Type=RelativeToParent,
+                                                        Property=Height,
+                                                        Factor=0.5,
+                                                        Constant=-38}"
+                                                       RelativeLayout.XConstraint ="{ConstraintExpression 
+                                                        Type=RelativeToParent,
+                                                        Property=Width,
+                                                        Factor=1,
+                                                        Constant=-76}"/>
+                                                    <Image HeightRequest="65" WidthRequest="64" HorizontalOptions="EndAndExpand" Source="{Binding Image}"
+                                                       RelativeLayout.YConstraint ="{ConstraintExpression 
+                                                        Type=RelativeToParent,
+                                                        Property=Height,
+                                                        Factor=0.5,
+                                                        Constant=-33}"
+                                                       RelativeLayout.XConstraint ="{ConstraintExpression 
+                                                        Type=RelativeToParent,
+                                                        Property=Width,
+                                                        Factor=1,
+                                                        Constant=-70}"/>
+
+                                                </RelativeLayout>
+                                            </StackLayout>
+                                        </StackLayout>
+                                        <BoxView
+                                                            HeightRequest="1"
+                                                            WidthRequest="275"
+                                                            Color="LightGray" />
+                                            <Label IsVisible="False" Text="{Binding NoDateEvent, Converter={StaticResource BoolToString}}" x:Name="NoDate"/>
+                                            <Label IsVisible="False" Text="{Binding NoHourEvent, Converter={StaticResource BoolToString}}" x:Name="NoHour"/>
+                                            <Label
+                                                            FontSize="Small"
+                                                            TextColor="#38bfc1">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text="{Binding DateDisplay, StringFormat='{0:dd/MM/YY}', Converter={StaticResource DateConvertor}, ConverterParameter={x:Reference Name=NoDate}}"/>
+                                                        <Span Text=" - "/>
+                                                        <Span Text="{Binding TimeDisplay, StringFormat='{0:HH/mm}', Converter={StaticResource HourConvertor}, ConverterParameter={x:Reference Name=NoHour}}" />
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                            <Label
+                                                            FontSize="Medium"
+                                                            TextColor="Black"
+                                                            Text="{Binding NameOfEvent}" />
+                                            <BoxView
+                                                            HeightRequest="1"
+                                                            WidthRequest="275"
+                                                            Color="LightGray" />
+                                            <Label
+                                                            Grid.Column="1"
+                                                            FontSize="Small"
+                                                            Text="{Binding Description, Converter={StaticResource DescriptionConverter}}" />
+                                            <BoxView
+                                                            HeightRequest="1"
+                                                            WidthRequest="275"
+                                                            Color="LightGray" />
+                                        </StackLayout>
+                                    </cardView:CardView.CardViewContent>
+                                </cardView:CardView>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+
+    </ContentView.Content>
+</ContentView>

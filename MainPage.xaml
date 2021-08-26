@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Amigo.MainPage"
+             xmlns:controls="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions">
+    <RelativeLayout>
+        <Image  Source="detailsImage2" 
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height}"
+                
+                Scale="1.3"
+               />
+        
+            <SearchBar x:Name="topSearchBar" 
+                       RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Constant=-40}"
+                       RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0,
+                             Constant=0}"
+                       RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0,
+                             Constant=0}"
+                       HeightRequest="40" Opacity="0.7"  CancelButtonColor="LightSlateGray" PropertyChanged="keepSearchButtonText" Focused="openSearchPage"/>
+            <Button Image="SettingsBtn"   
+                    RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0,
+                             Constant=6}"
+                    RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=1,
+                             Constant=-40}"
+                    Opacity="1"  BackgroundColor="Turquoise"  WidthRequest="28" HeightRequest="28"  x:Name="settings" Clicked="goToSettings" BorderRadius="14" VerticalOptions="Center" HorizontalOptions="Center"/>
+
+
+
+
+        <Button  x:Name="firstPage" Image="groupblack"
+                         RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0,
+                             Constant=59}"
+                RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.2,
+                             Constant=-16}"
+                         Opacity="1"  BackgroundColor="Turquoise" VerticalOptions="Center" WidthRequest="32" HeightRequest="32" BorderRadius="16" FontSize="Small" Clicked="firstPageClick"  HorizontalOptions="Center" />
+                
+                <Button Image="greenIcon32" Scale="1" 
+                        RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0,
+                             Constant=59}"
+                RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-16}"
+                        Clicked="AddEvent"    WidthRequest="32" HeightRequest="32" BorderRadius="16"  VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="Turquoise" Opacity="1" />
+
+        <Button  Opacity="1" Image="sketch32"
+                        RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0,
+                             Constant=59}"
+                RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.8,
+                             Constant=-16}"
+                        BackgroundColor="Turquoise" WidthRequest="32" VerticalOptions="Center" HeightRequest="32" BorderRadius="16"   x:Name="secondPage" FontSize="Medium" Clicked="secondPageClick"  HorizontalOptions="Center" />
+                
+            
+        
+        <controls:CarouselViewControl Orientation="Horizontal" InterPageSpacing="10" x:Name="mainCarouselView" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" PositionSelected="setColors"
+                          RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0,
+                             Constant=110}"            
+                                      >
+                <controls:CarouselViewControl.ItemTemplate>
+                    <DataTemplate>
+                        <ContentView Content="{Binding .}" VerticalOptions="FillAndExpand"/>
+                    </DataTemplate>
+                </controls:CarouselViewControl.ItemTemplate>
+            </controls:CarouselViewControl>
+
+        
+    </RelativeLayout>
+</ContentPage>

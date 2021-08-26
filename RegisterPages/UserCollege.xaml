@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Amigo.UserCollege">
+    <RelativeLayout>
+        <Image  Source="detailsImage" 
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height}"
+                Scale="1.3"
+               />
+        <Button BackgroundColor="LightGray"  Opacity="0.3" CornerRadius="10" IsEnabled="False"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Constant=-20}"
+                HeightRequest="50"
+                RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0,
+                             Constant=25}"
+                RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0,
+                             Constant=10}"
+                 />
+        
+            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                         RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0,
+                             Constant=36}"
+                RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-92}"
+                         >
+                <Label Text="איפה אתה לומד אמיגו?" FontSize="20" TextColor="White"/>
+            </StackLayout>
+            <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" Padding="5"
+                         WidthRequest="200"
+                          RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.25,
+                             Constant=8}"
+                RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-100}">
+
+            <Picker x:Name="College" WidthRequest="300" Title="אוניברסיטה" TextColor="White">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>אונ' אריאל</x:String>
+                        <x:String>אונ' בן-גוריון</x:String>
+                        <x:String>אונ' בר אילן</x:String>
+                        <x:String>אונ' חיפה</x:String>
+                        <x:String>אונ' ת"א</x:String>
+                        <x:String>האונ' העברית</x:String>
+                        <x:String>טכניון</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand"  
+                         WidthRequest="200"
+                          RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.45,
+                             Constant=8}"
+                RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-100}">
+                <StackLayout>
+                    <Button x:Name="AddCollegeFieldButton" CornerRadius="10" BackgroundColor="Turquoise" TextColor="White" HeightRequest="40" WidthRequest="40" Text="+" Clicked="AddCollegeField" IsVisible="True"/>
+                </StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <Picker x:Name="FirstCollegeField" WidthRequest="150" Title="תחום" TextColor="White">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>ביולוגיה</x:String>
+                                <x:String>הנדסה אזרחית</x:String>
+                                <x:String>הנדסה ביו-רפואית</x:String>
+                                <x:String>הנדסת חומרים</x:String>
+                                <x:String>הנדסת חשמל</x:String>
+                                <x:String>הנדסת מכונות</x:String>
+                                <x:String>הנדסת תוכנה</x:String>
+                                <x:String>הנדסת תעו"נ</x:String>
+                                <x:String>חינוך</x:String>
+                                <x:String>חשבונאות</x:String>
+                                <x:String>כימיה</x:String>
+                                <x:String>כלכלה</x:String>
+                                <x:String>מדעי המוח</x:String>
+                                <x:String>מדעי המחשב</x:String>
+                                <x:String>מנהל עסקים</x:String>
+                                <x:String>משפטים</x:String>
+                                <x:String>מתמטיקה</x:String>
+                                <x:String>ניהול</x:String>
+                                <x:String>סטטיסטיקה</x:String>
+                                <x:String>פיזיקה</x:String>
+                                <x:String>פילוסופיה</x:String>
+                                <x:String>פסיכולוגיה</x:String>
+                                <x:String>עבודה סוציאלית</x:String>
+                                <x:String>רפואה</x:String>
+                                <x:String>תקשורת</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </StackLayout>
+            </StackLayout>
+                <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                <StackLayout>
+                    <Button x:Name="RemoveCollegeFieldButton" CornerRadius="10" BackgroundColor="Turquoise" TextColor="White" HeightRequest="40" WidthRequest="40" Text="-" Clicked="RemoveCollegeField" IsVisible="False"/>
+                </StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <Picker IsVisible="False" Title="תחום נוסף" x:Name="SecondCollegeField" TextColor="White" WidthRequest="150">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>ביולוגיה</x:String>
+                                <x:String>הנדסה אזרחית</x:String>
+                                <x:String>הנדסה ביו-רפואית</x:String>
+                                <x:String>הנדסת חומרים</x:String>
+                                <x:String>הנדסת חשמל</x:String>
+                                <x:String>הנדסת מכונות</x:String>
+                                <x:String>הנדסת תוכנה</x:String>
+                                <x:String>הנדסת תעו"נ</x:String>
+                                <x:String>חינוך</x:String>
+                                <x:String>חשבונאות</x:String>
+                                <x:String>כימיה</x:String>
+                                <x:String>כלכלה</x:String>
+                                <x:String>מדעי המוח</x:String>
+                                <x:String>מדעי המחשב</x:String>
+                                <x:String>מנהל עסקים</x:String>
+                                <x:String>משפטים</x:String>
+                                <x:String>מתמטיקה</x:String>
+                                <x:String>ניהול</x:String>
+                                <x:String>סטטיסטיקה</x:String>
+                                <x:String>פיזיקה</x:String>
+                                <x:String>פילוסופיה</x:String>
+                                <x:String>פסיכולוגיה</x:String>
+                                <x:String>עבודה סוציאלית</x:String>
+                                <x:String>רפואה</x:String>
+                                <x:String>תקשורת</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </StackLayout>
+            </StackLayout>
+            <Entry Keyboard="Numeric" Placeholder="התחלת ללמוד בשנת?" x:Name="ClassOf" TextColor="White"></Entry>
+        </StackLayout>
+        <Button x:Name="logInBox"  Text="הבא" TextColor="White" FontSize="17" Clicked="AddInterests" BackgroundColor="Turquoise" IsVisible="True"  Opacity="1" CornerRadius="10"  
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0.6}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.1}"
+                RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.8,
+                             Constant=0}"
+                RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.2,
+                             Constant=0}"
+                 />
+        <Label x:Name="logInLbl" TextColor="White" FontAttributes="Bold" IsVisible="False"  FontSize="Medium" Text="הבא"
+               
+                RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.81,
+                             Constant=0}"
+                RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-17}"/>
+        
+    </RelativeLayout>
+</ContentPage>

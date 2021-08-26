@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Amigo.Views.SelectedEventView"
+             xmlns:controls="clr-namespace:Amigo.Controls" 
+             xmlns:templates="clr-namespace:Amigo.Views.Templates"
+             >
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary>
+                <Style TargetType="controls:HorizontalList">
+                    <Setter Property="Margin" Value="12, 0" />
+                </Style>
+            </ResourceDictionary>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <StackLayout>
+            <StackLayout>
+                <ActivityIndicator HorizontalOptions="Center" VerticalOptions="Center" IsVisible="False" IsEnabled="True" x:Name="syncIndicator" />
+                <Label FontSize="24" FontAttributes="Bold" TextColor="Black" HorizontalTextAlignment="Center" BackgroundColor="#b7fbff" Text="You are a part of this activity!" BindingContext="{x:Reference Name=CancelButton}" IsVisible="{Binding Path=IsVisible}"/>
+            </StackLayout>
+            <ScrollView>
+                <StackLayout Padding="1" >
+                    <StackLayout>
+                        <Image x:Name="EventImage" Source="Amigo.PNG" Scale="0.5"/>
+                        <Label x:Name="NameOfEvent" FontSize="24" FontAttributes="Bold" TextColor="Black"/>
+                        <Button Text="Join" x:Name="JoinButton" Clicked="JoinEvent" BackgroundColor="#2bd3e2"/>
+                        <Button Text="Cancel" x:Name="CancelButton" Clicked="CancelEvent" IsVisible="False" BackgroundColor="LightSlateGray"/>
+                        <Label x:Name="DateAndHour" />
+                        <Label x:Name="Location" />
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="Description:" FontSize="Medium" FontAttributes="Bold"/>
+                        <Label x:Name="Description"/>
+                        <Label x:Name="Tags" />
+                    </StackLayout>
+                    <StackLayout>
+                        <Label x:Name="NumOfParticipantsLabel" FontSize="Medium" FontAttributes="Bold"/>
+                        <controls:HorizontalList x:Name="UsersList" HeightRequest="120" ListOrientation="Horizontal">
+                            <controls:HorizontalList.ItemTemplate>
+                                <DataTemplate>
+                                    <templates:ShowEventUsersListTemplate />
+                                </DataTemplate>
+                            </controls:HorizontalList.ItemTemplate>
+                        </controls:HorizontalList>
+                        <BoxView HeightRequest="10"/>
+                        <Label Text="Exclusive for:" FontSize="Medium" FontAttributes="Bold"/>
+                        <controls:HorizontalList  
+                        x:Name="ExclusiveList"
+                        ListOrientation="Horizontal"
+                        HeightRequest="100">
+                            <controls:HorizontalList.ItemTemplate>
+                                <DataTemplate>
+                                    <templates:ShowEventTemplate />
+                                </DataTemplate>
+                            </controls:HorizontalList.ItemTemplate>
+                        </controls:HorizontalList>
+                        <BoxView HeightRequest="10"/>
+                        <StackLayout x:Name="repitEvent" HorizontalOptions="Center" IsVisible="False">
+                            <Label x:Name="repitEventLabel"  Text="click to invite everyone again, in a new date" TextColor="Black"></Label>
+                            <Button x:Name="repitEventBtn" Text="do it" Clicked="repitEventBtnClicked" TextColor="White" BackgroundColor="Turquoise" ></Button>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

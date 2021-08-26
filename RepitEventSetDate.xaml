@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Amigo.RepitEventSetDate"
+             BackgroundColor="White">
+    <ContentPage.Content>
+        <ContentView x:Name="CreateEventView">
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                <StackLayout HorizontalOptions="Center">
+                    <Label x:Name="explnationText1" Text="All of the Amigos that came to this past event will be reinvited to your new event" TextColor="Black" HorizontalOptions="CenterAndExpand"/>
+                </StackLayout>
+                <Button x:Name="explnationBtn1" Text="Let's do it" BackgroundColor="Turquoise" TextColor="White" Clicked="btn1Clicked" WidthRequest="140" HorizontalOptions="Center"/>
+                <Label x:Name="explnationText2" Text="All you have to do is set the new date and time" TextColor="Black" IsVisible="False"/>
+                <Button x:Name="setBtn1" Text="set date and time" BackgroundColor="Turquoise" TextColor="White" IsVisible="False" Clicked="setBtn1Clicked"/>
+                <DatePicker x:Name="DatePicker1" VerticalOptions="Center" TextColor="Gray" HorizontalOptions="Center" IsVisible="False">
+                    <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
+                </DatePicker>
+                <TimePicker x:Name="HourPicker" HorizontalOptions="Center" IsVisible="False"/>
+                <Button x:Name="setBtn101" Text="save" BackgroundColor="Turquoise" TextColor="White" IsVisible="False" Clicked="setBtn101Clicked"/>
+                <Label x:Name="dateTimeText1" TextColor="Black" IsVisible="False" HorizontalOptions="Center"/>
+                <Label x:Name="dateTimeText2" TextColor="Black" IsVisible="False" HorizontalOptions="Center"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Button x:Name="setBtn2" Text="change" BackgroundColor="DarkGray" TextColor="White" IsVisible="False" Clicked="setBtn2Clicked"/>
+                    <Button x:Name="saveBtn" Text="do it" BackgroundColor="Turquoise" TextColor="White" IsVisible="False" Clicked="saveBtnClicked"/>
+                </StackLayout>
+            </StackLayout>
+        </ContentView>
+    </ContentPage.Content>
+</ContentPage>

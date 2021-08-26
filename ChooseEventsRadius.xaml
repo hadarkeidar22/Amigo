@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             x:Class="Amigo.ChooseEventsRadius">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="StartAndExpand" Padding="30">
+            <maps:Map WidthRequest="350" HeightRequest="350"
+            x:Name="MyMap"
+            IsShowingUser="true"
+            MapType="Hybrid"
+        />
+            <Label TextColor="Black" HorizontalOptions="Center"  VerticalOptions="Center" FontSize="Medium" BindingContext="{x:Reference MaxDistance}">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="ראה אמיגואים במרחק"/>
+                        <Span Text="{Binding Value, StringFormat=' {0:F0} ', Mode=OneWay}" TextColor="HotPink"/>
+                        <Span Text=" קמ' ממך"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Slider x:Name="MaxDistance" ThumbColor="Turquoise"  Maximum="100" Minimum="2" MinimumTrackColor="HotPink" ValueChanged="OnSliderValueChanged" VerticalOptions="CenterAndExpand"/>
+            <Button Clicked="ChooseRadius" TextColor="White" FontSize="17" BackgroundColor="Turquoise" IsVisible="True"  Opacity="1" Text="הבא" CornerRadius="10"   />
+            <Label TextColor="White" IsVisible="False" FontAttributes="Bold"  FontSize="Medium" Text="הבא"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

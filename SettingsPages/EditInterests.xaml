@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Amigo.SettingsPages.EditInterests">
+    <ContentPage.Content>
+        <RelativeLayout>
+            <Image Source="detailsImage2Flip" Opacity="0.3" 
+                       WidthRequest="800" Scale="1.7"
+                       RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height}"
+                       RelativeLayout.YConstraint ="{ConstraintExpression 
+                                        Type=RelativeToParent,
+                                        Property=Height,
+                                        Factor=0,
+                                        Constant=-0}"
+                                    RelativeLayout.XConstraint ="{ConstraintExpression 
+                                        Type=RelativeToParent,
+                                        Property=Width,
+                                        Factor=0,
+                                        Constant=-200}"
+                       
+                       
+                       />
+
+            
+
+            <Button x:Name="checkBox" WidthRequest="36"  HeightRequest="36" CornerRadius="5" BackgroundColor="Black" Opacity="0.7" IsVisible="False"
+                    Image="checkMark24" HorizontalOptions="Center" VerticalOptions="Center"
+                     RelativeLayout.YConstraint ="{ConstraintExpression 
+                                        Type=RelativeToParent,
+                                        Property=Height,
+                                        Factor=1,
+                                        Constant=-130}"
+                                    RelativeLayout.XConstraint ="{ConstraintExpression 
+                                        Type=RelativeToParent,
+                                        Property=Width,
+                                        Factor=0.5,
+                                        Constant=-18}"
+                />
+            <StackLayout Orientation="Vertical" HorizontalOptions="Center" 
+                                    RelativeLayout.YConstraint ="{ConstraintExpression 
+                                        Type=RelativeToParent,
+                                        Property=Height,
+                                        Factor=0,
+                                        Constant=-20}"
+                                    RelativeLayout.XConstraint ="{ConstraintExpression 
+                                        Type=RelativeToParent,
+                                        Property=Width,
+                                        Factor=0.5,
+                                        Constant=-300}">
+                <Label Text="--------------------------------------------------------------------------------------------------------------" WidthRequest="600"/>
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Padding="0,40,0,0">
+                <Label Text="ניהול תחומי עניין" TextColor="White" FontSize="30"/>
+            </StackLayout>
+                <StackLayout Padding="185,17,185,0">
+                    <BoxView BackgroundColor="Turquoise" HeightRequest="1" x:Name="sadbox2" />
+                </StackLayout>
+                <StackLayout Padding="155,40,155,0" Opacity="0.6">
+                    <Grid x:Name="InterestsGrid" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <Label x:Name="InterestsString" IsVisible="False"/>
+                    </Grid>
+                </StackLayout>
+        </StackLayout>
+
+            <Button  x:Name="saveBtn"  Text="שמור שינויים" BackgroundColor="#162d3d" TextColor="White" HeightRequest="40" WidthRequest="120" 
+                     CornerRadius="2" VerticalOptions="Center" HorizontalOptions="Center" Clicked="SaveInterests"
+                     RelativeLayout.YConstraint ="{ConstraintExpression 
+                                        Type=RelativeToParent,
+                                        Property=Height,
+                                        Factor=1,
+                                        Constant=-80}"
+                                    RelativeLayout.XConstraint ="{ConstraintExpression 
+                                        Type=RelativeToParent,
+                                        Property=Width,
+                                        Factor=0.5,
+                                        Constant=-60}"
+                     />
+
+            <Button x:Name="xBox" Image="letterX64" TextColor="White"  WidthRequest="140"  HeightRequest="140" CornerRadius="5" BackgroundColor="LightSlateGray" Opacity="0.4" IsVisible="False"
+                     HorizontalOptions="Center" VerticalOptions="Center" Clicked="continue1" IsEnabled="True"
+                     RelativeLayout.YConstraint ="{ConstraintExpression 
+                                        Type=RelativeToParent,
+                                        Property=Height,
+                                        Factor=0.5,
+                                        Constant=-70}"
+                                    RelativeLayout.XConstraint ="{ConstraintExpression 
+                                        Type=RelativeToParent,
+                                        Property=Width,
+                                        Factor=0.5,
+                                        Constant=-70}"
+                />
+            <Label x:Name="xBoxHelp"  Text="בחר לפחות אחד" TextColor="White" FontSize="14" IsVisible="False" Opacity="0.7"
+                   RelativeLayout.YConstraint ="{ConstraintExpression 
+                                        Type=RelativeToParent,
+                                        Property=Height,
+                                        Factor=0.5,
+                                        Constant=45}"
+                                    RelativeLayout.XConstraint ="{ConstraintExpression 
+                                        Type=RelativeToParent,
+                                        Property=Width,
+                                        Factor=0.5,
+                                        Constant=-48}"
+                   />
+            
+            
+        </RelativeLayout>
+    </ContentPage.Content>
+</ContentPage>

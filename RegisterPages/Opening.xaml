@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+             x:Class="Amigo.RegisterPages.Opening">
+    <ContentPage.Content>
+        <RelativeLayout>
+            <Image  Source="detailsImageFlip" 
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height}"
+                Scale="1.3"
+               />
+            <!--
+            <StackLayout  Orientation="Horizontal"
+                      RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=1,
+                             Constant=-14}"
+                    RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-62}"
+                      >
+            -->
+                <Button x:Name="logInBox"  Text="הבא" TextColor="White" FontSize="17" Clicked="AddCollege" BackgroundColor="Turquoise" IsVisible="True"  Opacity="1" CornerRadius="10"  
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0.6}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.1}"
+                RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.8,
+                             Constant=0}"
+                RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.2,
+                             Constant=0}"
+                 />
+                <!--
+                <Label Text="designed by" TextColor="White" FontSize="Micro"/>
+                <Label Text="Amigo teamⒸ" FontAttributes="Bold" TextColor="White" FontSize="Micro"/>
+            </StackLayout>
+                -->
+        </RelativeLayout>
+    </ContentPage.Content>
+</ContentPage>

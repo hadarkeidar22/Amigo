@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cardView="clr-namespace:CardView;assembly=CardView"
+             xmlns:local="clr-namespace:Amigo.Convertors"
+             x:Class="Amigo.SearchEventPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:BoolToString x:Key="BoolToString" />
+            <local:DescriptionConverter x:Key="DescriptionConverter" />
+            <local:DateConvertor x:Key="DateConvertor" />
+            <local:HourConvertor x:Key="HourConvertor" />
+            <local:CardBackgroundConvertor x:Key="CardBackgroundConvertor" />
+            <local:CardImageConvertor x:Key="CardImageConvertor" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <SearchBar x:Name="searchBar" Focused="searchBarClick"/>
+            <StackLayout x:Name="searchForm">
+                <Grid x:Name="InterestsGrid"/>
+            </StackLayout>
+       <!--     <StackLayout x:Name="searchFormWhen" WidthRequest="30">
+                <Button x:Name="wheno" BorderRadius="15" HeightRequest="30" WidthRequest="30" BackgroundColor="LightSeaGreen"  Text="when?" Clicked="whenBtn" IsVisible="True"/>
+                <Button x:Name="dCWhen" BorderRadius="15" HeightRequest="30" WidthRequest="30"  BackgroundColor="LightSeaGreen" Text="don't care when" Clicked="dCWhenBtn" IsVisible="False"/>
+            </StackLayout>
+            <StackLayout>
+                <Grid x:Name="UserInfoGrid" IsVisible="False"/>
+            </StackLayout>
+            -->
+            <StackLayout x:Name="searchFormFind">
+                <Button Text="Find!" Clicked="SearchBtn" />
+            </StackLayout>
+            <ActivityIndicator  HorizontalOptions="Center" VerticalOptions="Center" IsVisible="False" IsEnabled="True" x:Name="syncIndicator" />
+            <ListView x:Name="eventsList" HasUnevenRows="True" ItemSelected="OnSelected" IsPullToRefreshEnabled="true" Refreshing="OnRefresh" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="8,8,8,8" Orientation="Vertical" BackgroundColor="LightGray">
+                                <cardView:CardView
+                                                BackgroundColor="{Binding Id, Converter={StaticResource CardBackgroundConvertor}}"
+                                                HeightRequest="210"
+                                                CardViewHasShadow="True">
+                                    <cardView:CardView.CardViewContent>
+                                        <StackLayout
+                                                        Padding="10"
+                                                        HorizontalOptions="Center"
+                                                        Spacing="10"
+                                                        VerticalOptions="Center">
+                                            <Image HeightRequest="80" Scale="1.25" WidthRequest="200" Source="{Binding NameOfEvent, Converter={StaticResource CardImageConvertor}}" x:Name="cardImage" />
+                                            <BoxView
+                                                            HeightRequest="1"
+                                                            WidthRequest="275"
+                                                            Color="LightGray" />
+                                            <Label IsVisible="False" Text="{Binding NoDateEvent, Converter={StaticResource BoolToString}}" x:Name="NoDate"/>
+                                            <Label IsVisible="False" Text="{Binding NoHourEvent, Converter={StaticResource BoolToString}}" x:Name="NoHour"/>
+                                            <Label
+                                                            FontSize="Small"
+                                                            TextColor="#38bfc1">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text="{Binding DateDisplay, StringFormat='{0:dd/MM/YY}', Converter={StaticResource DateConvertor}, ConverterParameter={x:Reference Name=NoDate}}"/>
+                                                        <Span Text=" - "/>
+                                                        <Span Text="{Binding TimeDisplay, StringFormat='{0:HH/mm}', Converter={StaticResource HourConvertor}, ConverterParameter={x:Reference Name=NoHour}}" />
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                            <Label
+                                                            FontSize="Medium"
+                                                            TextColor="Black"
+                                                            Text="{Binding NameOfEvent}" />
+                                            <BoxView
+                                                            HeightRequest="1"
+                                                            WidthRequest="275"
+                                                            Color="LightGray" />
+                                            <Label
+                                                            Grid.Column="1"
+                                                            FontSize="Small"
+                                                            Text="{Binding Description, Converter={StaticResource DescriptionConverter}}" />
+                                            <BoxView
+                                                            HeightRequest="1"
+                                                            WidthRequest="275"
+                                                            Color="LightGray" />
+                                        </StackLayout>
+                                    </cardView:CardView.CardViewContent>
+                                </cardView:CardView>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

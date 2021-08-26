@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Amigo.SettingsPages.SettingsPage"
+             xmlns:interactivity="using:Microsoft.Xaml.Interactivity"  
+             xmlns:behaviors="using:Microsoft.Toolkit.Uwp.UI.Animations.Behaviors"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             BackgroundColor="White">
+    <ContentPage.Content>
+        <ScrollView>
+            <RelativeLayout>
+            <Image  Source="ADdetailsImage2" Opacity="0.5" 
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0,Constant=150}"
+                Scale="2"
+               />
+          <!--  <Image  Source="white" Opacity="1" Scale="1"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height}"
+                RelativeLayout.YConstraint ="{ConstraintExpression 
+                                        Type=RelativeToParent,
+                                        Property=Height,
+                                        Factor=0,
+                                        Constant=40}"
+               /> -->
+                <BoxView BackgroundColor="White" Color="White"
+                         RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height}"
+                         RelativeLayout.YConstraint ="{ConstraintExpression 
+                                        Type=RelativeToParent,
+                                        Property=Height,
+                                        Factor=0,
+                                        Constant=170}"/>
+
+            <Button BackgroundColor="White" IsEnabled="False" HorizontalOptions="Center" VerticalOptions="Center" BorderRadius="54" HeightRequest="108" WidthRequest="108"
+                     RelativeLayout.YConstraint ="{ConstraintExpression 
+                                        Type=RelativeToParent,
+                                        Property=Height,
+                                        Factor=0,
+                                        Constant=96}"
+                                    RelativeLayout.XConstraint ="{ConstraintExpression 
+                                        Type=RelativeToParent,
+                                        Property=Width,
+                                        Factor=0.5,
+                                        Constant=-54}"/>
+
+            <StackLayout  RelativeLayout.YConstraint ="{ConstraintExpression 
+                                        Type=RelativeToParent,
+                                        Property=Height,
+                                        Factor=0,
+                                        Constant=100}"
+                                    RelativeLayout.XConstraint ="{ConstraintExpression 
+                                        Type=RelativeToParent,
+                                        Property=Width,
+                                        Factor=0.5,
+                                        Constant=-200}" >
+                <StackLayout HorizontalOptions="Center">
+                    <controls:CircleImage x:Name="hisPhoto"  WidthRequest="100" HeightRequest="100">
+                    </controls:CircleImage>
+                </StackLayout>
+                <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                    <Label x:Name="hisAge"  
+                                     TextColor="Gray" FontSize="Large"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                    <Label x:Name="fullname"  
+                                     TextColor="Black" FontSize="Large"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                </StackLayout>
+                <!--
+                            <StackLayout Orientation="Horizontal"  HorizontalOptions="Center" HeightRequest="35">
+                                <Label x:Name="city"  
+                                VerticalOptions="Center" TextColor="Gray" FontSize="Small" />
+                            </StackLayout>
+                            -->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" HeightRequest="35">
+                    <Label x:Name="uniName"  
+                               TextColor="Gray"  VerticalOptions="Center" FontSize="Small" />
+                </StackLayout>
+                <StackLayout HorizontalOptions="Center">
+                    <Button x:Name="editButton" HeightRequest="45" WidthRequest="45"  HorizontalOptions="Center" BorderRadius="60" BackgroundColor="SlateGray"
+                                        CornerRadius="60" FontSize="Micro" Text="ערוך" Clicked="editImageHelperclicked" TextColor="White" />
+                    <Button x:Name="editImageHelper" HorizontalOptions="Center" IsVisible="False"  Clicked="editImageHelperclicked" />
+                </StackLayout>
+                <StackLayout HorizontalOptions="Center">
+                    <Label Text="---------------------------------------------------------------" TextColor="White" WidthRequest="400"></Label>
+                </StackLayout>
+            </StackLayout>
+
+
+            <BoxView BackgroundColor="Turquoise" HeightRequest="1" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width, Factor=1,Constant=-90}"
+                        RelativeLayout.YConstraint ="{ConstraintExpression 
+                                        Type=RelativeToParent,
+                                        Property=Height,
+                                        Factor=0,
+                                        Constant=360}"
+                                    RelativeLayout.XConstraint ="{ConstraintExpression 
+                                        Type=RelativeToParent,
+                                        Property=Width,
+                                        Factor=0,
+                                        Constant=45}" />
+           
+                     
+            <StackLayout
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width, Factor=0.9}"
+                RelativeLayout.YConstraint ="{ConstraintExpression 
+                                        Type=RelativeToParent,
+                                        Property=Height,
+                                        Factor=0,
+                                        Constant=400}"
+                                    RelativeLayout.XConstraint ="{ConstraintExpression 
+                                        Type=RelativeToParent,
+                                        Property=Width,
+                                        Factor=0.05,
+                                        Constant=0}" >
+                
+
+                <Label TextColor="Black" HorizontalOptions="Center"  VerticalOptions="Center" FontSize="Medium" BindingContext="{x:Reference MaxDistance}">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="ראה אמיגואים במרחק"/>
+                                            <Span Text="{Binding Value, StringFormat=' {0:F0} ', Mode=OneWay}" TextColor="HotPink"/>
+                                            <Span Text=" קמ' ממך"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+
+                                <Slider x:Name="MaxDistance" ThumbColor="Turquoise"  Maximum="100" Minimum="2" MinimumTrackColor="HotPink" ValueChanged="OnSliderValueChanged" VerticalOptions="CenterAndExpand"/>
+                    <Label Text="---------------------------------------------------------------" TextColor="White" WidthRequest="400">
+                    </Label>
+                </StackLayout>
+
+            <BoxView BackgroundColor="Turquoise" HeightRequest="1" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width, Factor=1,Constant=-90}"
+                     x:Name="happyBox"   
+                     RelativeLayout.YConstraint ="{ConstraintExpression 
+                                        Type=RelativeToParent,
+                                        Property=Height,
+                                        Factor=0,
+                                        Constant=480}"
+                                    RelativeLayout.XConstraint ="{ConstraintExpression 
+                                        Type=RelativeToParent,
+                                        Property=Width,
+                                        Factor=0,
+                                        Constant=45}" />
+           
+                            <StackLayout
+                                RelativeLayout.YConstraint ="{ConstraintExpression 
+                                        Type=RelativeToParent,
+                                        Property=Height,
+                                        Factor=0,
+                                        Constant=500}"
+                                    RelativeLayout.XConstraint ="{ConstraintExpression 
+                                        Type=RelativeToParent,
+                                        Property=Width,
+                                        Factor=0.5,
+                                        Constant=-55}" 
+                                >
+                                <Label x:Name="interestsTitle" FontAttributes="Bold"  Text="תחומי העניין שלך"
+                               TextColor="Black"  HorizontalOptions="Center"  VerticalOptions="Center"/>
+                            </StackLayout>
+
+                <StackLayout Padding="10,0,10,0" 
+                                      RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}"
+                                        RelativeLayout.YConstraint ="{ConstraintExpression 
+                                        Type=RelativeToParent,
+                                        Property=Height,
+                                        Factor=0,
+                                        Constant=520}"
+                                    RelativeLayout.XConstraint ="{ConstraintExpression 
+                                        Type=RelativeToParent,
+                                        Property=Width,
+                                        Factor=0,
+                                        Constant=0}" 
+                                      >
+
+                    <Grid x:Name="interestsGrid" IsEnabled="False"
+                                      >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0"/>
+                            <RowDefinition Height="0"/>
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <StackLayout>
+                        <Label Text="-" TextColor="White"></Label>
+                    </StackLayout>
+                    <StackLayout>
+                        <Button x:Name="interestsBtn" HeightRequest="45" WidthRequest="45" FontAttributes="Bold" FontSize="Micro" HorizontalOptions="Center" VerticalOptions="End"
+                                        BackgroundColor="LightSlateGray" TextColor="White" BorderRadius="35"  Text="+" Clicked="interestsBtnclicked"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="-" TextColor="White" HeightRequest="20"/>
+                    </StackLayout>
+                    <StackLayout Padding="35,0,35,0">
+                        <BoxView BackgroundColor="Turquoise" HeightRequest="1" x:Name="sadbox1" />
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="-" TextColor="White" HeightRequest="20"/>
+                    </StackLayout>
+                    <Label x:Name="HobbiesTitle" FontAttributes="Bold"  Text="רשימת התחביבים שלך"
+                               TextColor="Black"  HorizontalOptions="Center"  VerticalOptions="End"/>
+                    <StackLayout Orientation="Vertical">
+                        <Grid x:Name="HobbiesGrid" IsEnabled="False">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0"/>
+                                <RowDefinition Height="0"/>
+                                <RowDefinition Height="0"/>
+                            </Grid.RowDefinitions>
+                        </Grid>
+                        <StackLayout>
+                            <Label Text="-" TextColor="White"></Label>
+                        </StackLayout>
+                        <StackLayout>
+                            <Button x:Name="HobbiesBtn" HeightRequest="45" WidthRequest="45" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="End"
+                                        BackgroundColor="LightSlateGray" TextColor="White" BorderRadius="35"  FontSize="Micro" Text="+" Clicked="HobbiesBtnclicked"/>
+                        </StackLayout>
+                        <StackLayout>
+                            <Label Text="-" TextColor="White"></Label>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Entry x:Name="gridInterestsHelp" IsVisible="False"/>
+                        <Entry x:Name="gridHobbiesHelp" IsVisible="False"/>
+                    </StackLayout>
+                    <StackLayout Padding="35,20,35,20">
+                        <BoxView BackgroundColor="Turquoise" HeightRequest="1" x:Name="sadbox2" />
+                    </StackLayout>
+                    <Button Text="התנתק מהמערכת" Clicked="logOut" BackgroundColor="red" Opacity="0.4" TextColor="White" HeightRequest="40" WidthRequest="200" HorizontalOptions="Center"/>
+                    <StackLayout Padding="0,10,0,0">
+                        <Button Text="מחק חשבון" Clicked="deleteUser" BackgroundColor="red" Opacity="0.4" TextColor="White" HeightRequest="40" WidthRequest="200" HorizontalOptions="Center"/>
+                    </StackLayout>
+                        <StackLayout Padding="35,20,35,20">
+                        <BoxView BackgroundColor="Turquoise" HeightRequest="1" x:Name="sadbox3" />
+                    </StackLayout>
+                    <Image Source="Amigo" HorizontalOptions="Center" HeightRequest="60" WidthRequest="60"/>
+                    <Label Text="Amigo 1.0" HorizontalOptions="Center" TextColor="Gray" FontSize="Micro"/>
+                    <StackLayout>
+                        <Label Text="-" TextColor="White" HeightRequest="20"/>
+                    </StackLayout>
+
+                </StackLayout>
+            </RelativeLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

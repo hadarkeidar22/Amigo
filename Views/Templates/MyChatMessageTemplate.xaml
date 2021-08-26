@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Amigo.Views.Templates.MyChatMessageTemplate">
+    <Grid
+      ColumnSpacing="0"
+      RowSpacing="0"
+      VerticalOptions="StartAndExpand"
+      Padding="40,0,50,20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- BALLOON BACKGROUND -->
+        <Grid   Grid.Row="0" Grid.Column="1"  VerticalOptions="EndAndExpand"   HorizontalOptions="End">
+            <Button BorderRadius="8" IsEnabled="False"
+              InputTransparent="False"
+              VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+              BackgroundColor="#FDA610" FontSize="14"/>
+            <StackLayout Padding="10" VerticalOptions="Center" HorizontalOptions="Center">
+                <Label VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+        TextColor="#5E5E5E"
+        FontSize="18"
+        Text="{ Binding SenderFullName, StringFormat=' {0}:'}"/>
+
+                <Label VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                TextColor="#FFFFFF"
+                FontSize="18"
+                Text="{ Binding Text }"/>
+            </StackLayout>
+        </Grid>
+
+        <!-- WHEN -->
+        <Label
+      Grid.Row="1" Grid.Column="1"
+        HorizontalOptions="End"
+        VerticalOptions="CenterAndExpand"
+        TranslationY="10" 
+		    FontSize ="15"
+		   	TextColor="#5E5E5E"
+        HorizontalTextAlignment="End"
+        Text="{Binding SentTimeAsString }"/>
+    </Grid>
+</ViewCell>

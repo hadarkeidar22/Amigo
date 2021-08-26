@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Amigo.RegisterPages.UserInterests">
+    <RelativeLayout>
+        <Image  Source="detailsImageFlip" 
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height}"
+                Scale="1.3"
+               />
+        <Button BackgroundColor="LightGray"  Opacity="0.3" CornerRadius="10" IsEnabled="False"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Constant=-20}"
+                HeightRequest="50"
+                RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0,
+                             Constant=25}"
+                RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0,
+                             Constant=10}"
+                 />
+        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                         RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0,
+                             Constant=36}"
+                RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-130}"
+                         >
+            <Label Text="נתחיל מתחום עניין אחד בינתיים" FontSize="20" TextColor="White"/>
+        </StackLayout>
+        <StackLayout VerticalOptions="CenterAndExpand"
+                     RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Constant=-20}"
+                     RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.3,
+                             Constant=0}"
+                RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0,
+                             Constant=10}">
+
+
+            <Grid x:Name="InterestsGrid" BackgroundColor="LightGray" Opacity="0.3" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+            <Label x:Name="InterestsString" IsVisible="False"/>
+            
+        </StackLayout>
+
+        <Button x:Name="logInBox" Clicked="AddHobbies" TextColor="White" FontSize="17" BackgroundColor="Turquoise" IsVisible="True"  Opacity="1" Text="הבא" CornerRadius="10"  
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0.6}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.1}"
+                RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.8,
+                             Constant=0}"
+                RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.2,
+                             Constant=0}"
+                 />
+        <Label x:Name="logInLbl" TextColor="White" IsVisible="False" FontAttributes="Bold"  FontSize="Medium" Text="הבא"
+               
+                RelativeLayout.YConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.81,
+                             Constant=0}"
+                RelativeLayout.XConstraint ="{ConstraintExpression 
+                             Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-17}"/>
+    </RelativeLayout>
+</ContentPage>
